@@ -74,18 +74,31 @@
        }
 
        .button {
-           color: rgb(0, 0, 0);
-           background-color: rgb(255, 255, 255);
-           padding: 15px 30px;
-           border-radius: 4px;
-           text-decoration: none;
-           line-height: 20px;           
-           font-weight: 700;
-           font-size: 16px;
+           color: rgb(0, 0, 0);            
+           text-decoration: none;             
+           font-size: 35px; 
+           font-weight: 700; 
+           padding: 16px;
+           border-radius: 5px;
+           letter-spacing: -1px;                     
        }
 
-       .button:hover{
+       .btn-cr {      
+        color: black;   
+        text-decoration: none;      
+        background-color: rgb(255, 255, 255);
+        box-shadow:0 3px 0 gray;
+       }
+
+       .btn-cr:hover{
            background-color: rgb(151, 151, 151);
+           box-shadow:0 3px 0 rgb(0, 0, 0);
+       }
+
+       .btn-cr:active{
+            box-shadow: none;
+            position: relative;
+            top: 3px;
        }
        
            
