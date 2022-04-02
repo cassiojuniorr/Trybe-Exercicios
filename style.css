@@ -24,27 +24,34 @@
           font-size: 2em;   
           text-align: center; 
           text-decoration: none;      
-      }
+      }     
 
-      .lista li {            
-            color: rgb(128, 128, 128);
-            line-height: 70px;
-            font-size: 30px;
-            text-align: center;
-            text-decoration: underline;
-            background-color: white;
-      }
-
-       .text2 {
-           background-color: white;
+       .text2 {           
            color: rgb(0, 0, 0);
            font-size: 50px;
            text-align: center;
-           line-height: 20px;
-           letter-spacing: 5px;
-           padding: 50px;           
-       }     
+           line-height: 0px;
+           letter-spacing: 3px;
+           padding: 50px;   
+           margin-left: 40px;                 
+       }   
        
+       .part2 {
+           background-color: white;
+           padding: 10px 0px;
+       }
+
+       .list {
+           margin-left: 320px;
+           font-size: 35px;
+           margin-bottom: 30px;
+           font-weight: 500;
+           color: rgb(31, 30, 30);
+       }
+       
+
+
+
        .corp {
            width: 960px;
            margin: auto;
