@@ -21,11 +21,11 @@
 
       .text3 {
           color: rgb(255, 255, 255);          
-          font-size: 30px;   
+          font-size: 20px;   
           text-align: center;             
           letter-spacing: -1; 
           font-weight: 600;
-          text-decoration: none;
+          
       }   
       
       h2 {
@@ -72,7 +72,7 @@
            display: table-cell;
            float: left;
            max-width: 400px;
-           margin-top: 60px;
+           margin-top: 15px;
            margin-left: 20px;
            font-size: 25px;
            letter-spacing: 2px;
@@ -114,14 +114,26 @@
        }
 
        .footer {
-           background-color: black;
-           padding: 30px;
+            background-color: rgb(54, 54, 54);
+            padding: 30px;
+            text-align: center;
+       }
+
+       .nave {
+            background-color: rgb(116, 116, 116);
+            padding-left: 70px;
+            padding-bottom: 10px;
+            padding-top: 10px;
        }
        
-       .nave {
+       nav ul li.nave {
            display: inline;
-           color: white;
            margin: 40px;
-           background-color: white;
+           font-weight: 600;
+       }
+
+       .ext {
+           padding-left: 150px;
+           padding-top: 20px;
        }
    
