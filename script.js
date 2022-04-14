@@ -31,14 +31,19 @@ ChangeH1("Novo Titulo!");
 
 //Exercício 5
 function maiusc(){
-    for (let index= 0; index <  p.length; index++){
-        document.getElementsByTagName("p")[index].innerText = toLowerCase('p');
-    }
+    
+    let mai = document.getElementsByTagName("p")[0];
+    mai.innerText = mai.innerText.toUpperCase();
 }
 maiusc();
 
-function exibP(){
-    for (let index= 0; index <  p.length; index++){
-        //console.log(document.getElementsByTagName('p[index]');
+//Exercício 6
+function showCon (){
+    let show = document.getElementsByTagName('p');
+    for (let index = 0; index < show.length; index++){
+        console.log(show[index]);
     }
-}
+} 
+showCon();
+
+
