@@ -56,53 +56,61 @@
     </style>
   </head>
   <body>
-      <h1 cla="title"> Exercício 5.2</h1>
-      <main class="main-content">
-        <section class="center-content">
-            <p></p>
-        </section>
-        <section class="left-content">
-            <img src="https://picsum.photos/200" alt="imagem ae" class="small-image"></img>
-        </section>
-        <section class="right-content">
-            <ol>
-                <li>Um</li>
-                <li>Dois</li>
-                <li>Três</li>
-                <li>Quatro</li>
-                <li>Cinco</li>
-                <li>Seis</li>
-                <li>Sete</li>
-                <li>Oito</li>
-                <li>Nove</li>
-                <li>Dez</li>
-            </ol>
-        </section>
-
-        <h3 class="description"></h3>
-        <h3 class="description"></h3>
-        <h3 class="description"></h3>
-
-      </main>
     
     <script>
       // COLOQUE SEU CÓDIGO AQUI
-        let pachMain = document.getElementsByTagName('main');
-        //let removeSection = document.querySelectorAll('main-content left-content');
-        //pachMain.removeChild(removeSection);
+      const title = document.createElement('h1');
+      title.innerHTML = 'Exercício 5.2 - JavaScript DOM';
+      title.classList.add('title');
+      document.body.appendChild(title);
 
-        let sectionRight = document.getElementsByClassName("right-content");
-        sectionRight
+      let d1 = document.createElement('div');
+      d1.className = 'main-content';
+      document.body.appendChild(d1);
 
-        let chageColor = document.getElementsByClassName("center-content");
-        chageColor.style.backgroundColor = pink;
+      let d2 = document.createElement('div');
+      d2.classList.add("center-content");
+      d1.appendChild(d2);
 
-        let list = document.querySelectorAll("section.right-content ol li");
-        let listU = list.lastElementChild;
-        list.removeChild(listU);
-        listU.previousElementSibling;
-        list.removeChild(listU);
+      let para = document.createElement('p');
+      para.innerHTML = "Algum texto ae mano";
+      d2.appendChild(para);
 
+      let d3 = document.createElement('div');
+      d3.classList.add('left-content');
+      d2.appendChild(d3);
+
+      let d4 = document.createElement('div');
+      d4.classList.add('right-content');
+      d2.appendChild(d4);
+
+      let ig = document.createElement('img');
+      ig.src = 'https://picsum.photos/200';
+      ig.classList.add('small-image');
+      d3.appendChild(ig);
+
+      let list = document.createElement('ul');
+      let numbersList = ['Um', 'dois', 'tres', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
+      let lis = null;
+      for (let index = 0; index < numbersList.length; index++){
+        lis = document.createElement('li');
+        lis.innerHTML = numbersList[index];
+        list.appendChild(lis);
+      }
+      d3.appendChild(list);
+      let ult = lis.lastElementChild;
+      lis.remove(ult);
+      lis.remove(ult.previousElementSibling);
+
+      for(let i = 0; i < 3; i++){
+        let title3 = document.createElement('h3');
+        title3.innerText = i;
+        title3.classList.add('description');
+        d1.appendChild(title3);
+      }
+
+      
+      d1.style.backgroundColor = 'green';
     </script>
 
   </body>
