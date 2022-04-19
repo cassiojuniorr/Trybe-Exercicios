@@ -20,13 +20,16 @@ function createDaysOfTheWeek() {
     
     function dias(){
         
-        for (let index = 0; index <= dList.length-1; index++){
+        for (let index = 0; index <= dList.length -1; index++){
             let lis = document.createElement("li");
             lis.innerHTML = dList[index];
             lis.classList.add("days");   
-            if(dList[index] == 24 || dList[index] == 25 || dList[index] == 31){
+            if(dList[index] == 24 || dList[index] == 31){
                 lis.classList.add("holiday");
-            } else if(dList[index] == 4 || dList[index] == 11 || dList[index] == 18 || dList[index] == 25){
+            } else if(dList[index] == 4 || dList[index] == 11 || dList[index] == 18){
+                lis.classList.add("friday");
+            } else if (dList[index] == 25){
+                lis.classList.add("holiday");
                 lis.classList.add("friday");
             }
             uls.appendChild(lis); 
@@ -41,19 +44,28 @@ function createDaysOfTheWeek() {
         but.innerHTML = 'Feriados';
         let dC = document.querySelectorAll("div.buttons-container")[0];
         dC.appendChild(but);
-        //but.addEventListener("click", cColor);
-        //but.addEventListener("click", bColor);
+        
     }
     fer();
-/* 
-    function cColor(){
-        feriados.style.color = 'red'; 
+
+    
+    function makeBu1(){
+        let buttHoli = document.getElementById("btn-holiday");
+        let colorBack = 'rgb(238,238,238)';
+        let colorNew = 'white';
+        buttHoli.addEventListener("click", cColor);
+        function cColor(){
+            for (let i = 0; i < buttHoli.length; i++){
+                if(feriados[i].style.backgroundcolor == colorNew){
+                    feriados[i].style.backgroundcolor = colorBack;
+                } else {
+                    feriados[i].style.backgroundcolor = colorNew; 
+                }
+            }
+        }
     }
-    cColor();
-    function bColor(){
-        feriados.style.color = 'rgb(238,238,238)';
-    }
-    bColor(); */
+    makeBu1();
+
 
     function sex(){
         let but2 = document.createElement("button");
@@ -61,14 +73,24 @@ function createDaysOfTheWeek() {
         but2.id = 'btn-friday';
         let dC = document.querySelectorAll("div.buttons-container")[0];
         dC.appendChild(but2);
-        but2.addEventListener("click",tSex);
     }
     sex();
 
-    function tSex(){
-        let sexs = document.getElementsByClassName("friday");
-        sexs.innerHTML = 'Sexta-feira';
-    }
+        let buttFry = document.getElementById("btn-friday");
+        buttFry.addEventListener("click",tSex);
+        let daysSex = [4, 11, 18, 25]
+        function tSex(){
+            let sexs = document.getElementsByClassName("friday");
+            let newSext = 'SEXTOU o/';
+            for (let i = 0; i < sexs.length; i++){ 
+                if (sexs[i].innerHTML !== newSext){
+                    sexs[i].innerHTML = newSext;
+                } else {
+                    sexs[i].innerHTML = daysSex[i];
+                } 
+            }
+        }
+        tSex();
     
 
 
