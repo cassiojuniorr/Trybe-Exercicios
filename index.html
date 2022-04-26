@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios Trybe dia 6.1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="" method="post" class="formulare">
+        <h1 class="title">Formulário para Viagem</h1>
+        <div class="infoBase">
+            <div>
+                <label for="nameC">
+                    Nome:
+                    <input type="text" id="nameC" placeholder="Digite seu nome" required autofocus min="10" max="40">
+                </label>
+            </div>
+
+            <div>
+                <label for="emailU">
+                    Email:
+                    <input type="email" id="emailU" placeholder="Digite seu email" required min="10" max="50">
+                </label>
+            </div>
+
+            <div required class="loca">
+                <label for="local1">
+                    <input type="radio" name="local" id="local1" checked>Cidade
+                </label>
+
+                <label for="local2">
+                    <input type="radio" name="local" id="local2">Campo
+                </label>
+
+                <label for="local3">
+                    <input type="radio" name="local" id="local3">Praia
+                </label>
+
+                <label for="local4">
+                    <input type="radio" name="local" id="local4">Montanhas
+                </label>
+            </div>
+        </div>
+
+        <div id="boxTe">
+            <h2>Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?</h2>
+            <textarea name="" id="textAr" cols="30" rows="10" placeholder="Digite aqui:"></textarea>
+        </div>
+
+        <div id="boxDat">
+            <h2>Qual a melhor data para realizar sua viagem?</h2>
+            <label for="inDate">
+                <input type="date" id="inDate" required>
+            </label>
+        </div>
+
+        <div id="boxLik">
+            <label for="lik1">
+                <input type="checkbox" name="like" id="lik1">
+                Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
+            </label>
+            <br>
+            <label for="lik2">
+                <input type="checkbox" name="like" id="lik2">
+                Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
+            </label>
+        </div>
+
+        <button type="submit" id="bSend">Enviar</button>
+
+    </form>
+    <button id="bLimp">Limpar</button>
+    <script src="java.js"></script>
+</body>
+</html>
