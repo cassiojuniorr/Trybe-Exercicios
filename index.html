@@ -27,31 +27,31 @@
 
             <div required class="loca">
                 <label for="local1">
-                    <input type="radio" name="local" id="local1" checked>Cidade
+                    <input type="radio" name="local" id="local1"  value="CI" checked>Cidade
                 </label>
 
                 <label for="local2">
-                    <input type="radio" name="local" id="local2">Campo
+                    <input type="radio" name="local" id="local2" value="C">Campo
                 </label>
 
                 <label for="local3">
-                    <input type="radio" name="local" id="local3">Praia
+                    <input type="radio" name="local" id="local3" value="P">Praia
                 </label>
 
                 <label for="local4">
-                    <input type="radio" name="local" id="local4">Montanhas
+                    <input type="radio" name="local" id="local4" value="M">Montanhas
                 </label>
             </div>
         </div>
 
         <div id="boxTe">
-            <h2>Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso TrybeTrip?</h2>
+            <h2>Por que você deveria ser a pessoa desenvolvedora a ganhar o concurso <span  style="color: rgb(0, 196, 88)">TrybeTrip?</span></h2>
             <textarea name="" id="textAr" cols="30" rows="10" placeholder="Digite aqui:"></textarea>
         </div>
 
         <div id="boxDat">
             <h2>Qual a melhor data para realizar sua viagem?</h2>
-            <label for="inDate">
+            <label for="inDate">Data:
                 <input type="date" id="inDate" required>
             </label>
         </div>
@@ -70,8 +70,10 @@
 
         <button type="submit" id="bSend">Enviar</button>
 
+        <button id="bLimp">Limpar</button>
+
     </form>
-    <button id="bLimp">Limpar</button>
+    
     <script src="java.js"></script>
 </body>
 </html>
