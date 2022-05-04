@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: border;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    font-size: 100%;
+}
+
+/* header */
+a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+}
+
+a:hover {
+    opacity: 1;
+}
+
+.header {
+    background-color: rgb(39, 39, 39);
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navHeader a {
+    padding: 0 10px;
+    margin-right: 40px;
+}
+
+/* propaganda */
+
+.propagandaContainer {
+    display: flex;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.ime {
+    background-image: url("perfil.png");
+    height: 100vh;
+    display: flex;
+    background-size: cover;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    flex-flow: column wrap;
+    padding: 0 60px;
+}
+
+.ime h1 {
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+}
+
+.ime h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.ime hr {
+    width: 200px;
+    color: white;
+    height: 2px;
+    margin-top: 15px;
+}
