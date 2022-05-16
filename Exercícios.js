@@ -82,3 +82,26 @@ function smallerName(array) {
     return nameBook;
 };
 /* console.log(smallerName(books)); */
+
+function getNamedBook(array) {
+    let book26C = '';
+    array.find((env, ) => {
+        env.name.length
+        if(env.name.length === 26){
+            book26C = env.name;
+        }
+    });
+    return `${book26C} tem ${book26C.length} caracteres.`;
+};
+/* console.log(getNamedBook(books)); */
+
+function everyoneWasBornOnSecXX(bornDay) {
+    return books.every((element) => {
+       return element.author.birthYear === bornDay;
+    });
+}
+/* console.log(everyoneWasBornOnSecXX(1890)); */
+
+function someBookWasReleaseOnThe80s(decada) {
+    
+}
