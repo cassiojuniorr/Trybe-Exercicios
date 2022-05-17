@@ -103,5 +103,8 @@ function everyoneWasBornOnSecXX(bornDay) {
 /* console.log(everyoneWasBornOnSecXX(1890)); */
 
 function someBookWasReleaseOnThe80s(decada) {
-    
-}
+    return books.some((env) => {
+      return env.releaseYear >= 1980 && env.releaseYear <= 1989;
+    });
+};
+console.log(someBookWasReleaseOnThe80s(1980));
