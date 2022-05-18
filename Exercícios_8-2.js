@@ -73,7 +73,7 @@ const nameAndAge = (objeto) => {
         let age = element.releaseYear - element.author.birthYear;
         return objeto = {age: age,
             author: element.author.name,
-        }.sort((obj1, obj2) => obj1.age - obj2.age);
+        };
     });
 };
 /* console.log(nameAndAge(books)); */
@@ -81,24 +81,32 @@ const nameAndAge = (objeto) => {
 const fantasyOrScienceFiction = (array) => {
     return array.filter((element) => element.genre === 'Ficção Científica' || element.genre === 'Fantasia');
 };
-/* console.log(fantasyOrScienceFiction(books)) */;
-
-const fantasyOrScienceFictionAuthors = (arr) => {
-    let filterArr = arr.filter((element) => element.genre === 'Ficção Científica' || element.genre === 'Fantasia');
-    return filterArr.map((env) => {
-        let result = env.author.name;
-        return result;
-    });
-}
-/* console.log(fantasyOrScienceFictionAuthors(books)); */
+/* console.log(fantasyOrScienceFiction(books)); */
 
 const oldBooksOrdered = (array) => {
     let arrayFilter = array.filter((element) => 2022 - element.releaseYear >= 60);
     return arrayFilter.map((element) => {
-        return element.name;
+        return element;
     });
 };
 /* console.log(oldBooksOrdered(books)); */
+
+const fantasyOrScienceFictionAuthors = (arr) => {
+  let filterArr = arr.filter((element) => element.genre === 'Ficção Científica' || element.genre === 'Fantasia');
+  return filterArr.map((env) => {
+      let result = env.author.name;
+      return result;
+  });
+}
+/* console.log(fantasyOrScienceFictionAuthors(books)); */
+
+const oldBooks = (array) => {
+  let arrayFilter = array.filter((element) => 2022 - element.releaseYear >= 60);
+  return arrayFilter.map((element) => {
+      return element.name;
+  });
+};
+/* console.log(oldBooks(books)); */
 
 const authorWith3DotsOnName = (arr) => {
     return arr.filter((elm) => elm.author.name[0] === 'J' && elm.author.name[1] === '.')
