@@ -33,4 +33,5 @@ const sendMarsTemperature = (callback) => {
 };
 
 setTimeout(() => sendMarsTemperature(tempInFahrenheit), menssageDelay());
+
 setTimeout(() => sendMarsTemperature(tempInCel), menssageDelay());
