@@ -22,38 +22,80 @@
       <button id="toggle-status">Ficar Online</button>
     </div>
     <script>
-      const THEME_INITIAL_STATE = {
-        theme: 'dark',
-      };
+        const accTheme = 'ACC-THEME';
+        const accStatus = 'ACC-STATUS';
+    
+        const THEME_INITIAL_STATE = {
+            theme: 'dark',
+        };
 
-      const themeReducer = (state = THEME_INITIAL_STATE, action) => {
-        switch (action.type) {
-          default:
-            return state;
-        }
-      };
+        const themeReducer = (state = THEME_INITIAL_STATE, action) => {
+                switch (action.type) {
+                    case accTheme :
+                        return {
+                            ...state,
+                            theme: state.theme === 'dark' ? 'light' : 'dark'
+                        }
 
-      const STATUS_INITIAL_STATE = {
-        status: 'offline',
-      };
+                    default:
+                        return state;
+                    }
+        };
 
-      const statusReducer = (state = STATUS_INITIAL_STATE, action) => {
-        switch (action.type) {
-          default:
-            return state;
-        }
-      };
+        const STATUS_INITIAL_STATE = {
+            status: 'offline',
+        };
 
-      const themeButton = document.getElementById('toggle-theme');
-      const statusButton = document.getElementById('toggle-status');
+        const statusReducer = (state = STATUS_INITIAL_STATE, action) => {
+                switch (action.type) {
+                    case accStatus :
+                        return {
+                            ...state,
+                            status: state.status === 'offline' ? 'online' : 'offline'
+                        }
 
-      themeButton.addEventListener('click', () => {
-        // coloque o código aqui.
-      });
+                    default:
+                        return state;
+                    }
+        };
 
-      statusButton.addEventListener('click', () => {
-        // coloque o código aqui.
-      });
+        const reducerCombinado = Redux.combineReducers({
+            themeReducer,
+            statusReducer,
+        });
+
+        const store = Redux.createStore(
+            reducerCombinado,
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        );
+
+        const themeButton = document.getElementById('toggle-theme');
+        const statusButton = document.getElementById('toggle-status');
+
+        themeButton.addEventListener('click', () => {
+            store.dispatch({ type: accTheme })
+        });
+
+        statusButton.addEventListener('click', () => {
+            store.dispatch({ type: accStatus })
+        });
+
+        store.subscribe(() => {
+            const attState = store.getState();
+            const bckg = document.querySelector('body');
+            const textOn = document.querySelector('#status');
+            if (attState.themeReducer.theme === 'light') {
+                bckg.style.background = 'white';
+                bckg.style.color = 'black';
+                themeButton.innerHTML = 'Dark Mode'
+            } else {
+                bckg.style.background = '#333';
+                bckg.style.color = 'white';
+                themeButton.innerHTML = 'Light Mode'
+            }
+            
+            textOn.innerText = attState.statusReducer.status;
+        });
     </script>
   </body>
 </html>
