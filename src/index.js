@@ -1,53 +1,20 @@
 const app = require('./app');
-const activities = require('./mock/activities');
+const trybeCacau = require('./mock/trybeCacau');
 
-app.get('/myActivities', (_req, res) => {
-    res.status(200).json(activities);
+app.get('/chocolates', (_req, res) => {
+    res.status(200).json(trybeCacau);
 });
 
-app.get('/myActivities/:id', (req, res) => {
+app.get('/chocolates/:id', (req, res) => {
     const { id } = req.params;
 
-    const activity = activities.find((act) => act.id === Number(id));
-
-    if (!activity) { res.status(404).json({ message: 'not found' }); }
-
-    res.status(200).json(activity);
+    const chocolate = trybeCacau.find((chl) => chl.id === Number(id));
+    res.status(200).json(chocolate);
 });
 
-app.get('/filter/myActivities', (req, res) => {
-    const { status } = req.query;
+app.get('/chocolates/brand/:brandId', (req, res) => {
+    const { brandId } = req.params;
 
-    const activity = activities.filter((act) => act.status === status);
-
-    if (!activity) { res.status(404).json({ message: 'not found this activity' }); }
-
-    res.status(200).json(activity);
-});
-
-app.post('/myActivities', (req, res) => {
-    activities.push(req.body);
-    res.status(201).json(activities);
-});
-
-app.put('/myActivities/:id', (req, res) => {
-   const { id } = req.params;
-   const updateActivity = req.body;
-
-   const activity = activities.findIndex((act) => act.id === Number(id));
-   console.log('ID:', activity);
-
-   activities[activity] = { ...activities[activity], ...updateActivity }; 
-
-   res.status(200).json({ message: 'Atualizado!' });
-});
-
-app.delete('/myActivities/:id', (req, res) => {
-    const { id } = req.params;
-
-    const filterActivity = activities.find((act) => act.id === Number(id));
-
-    activities.splice(filterActivity, 1);
-
-    res.status(200).json({ message: 'Removido!' });
+    const chocolate = trybeCacau.find((chl) => chl.brandId === Number(brandId));
+    res.status(200).json(chocolate);
 });
