@@ -18,3 +18,7 @@ app.get('/chocolates/brand/:brandId', (req, res) => {
     const chocolate = trybeCacau.find((chl) => chl.brandId === Number(brandId));
     res.status(200).json(chocolate);
 });
+
+app.get('/chocolateslength', (_req, res) => {
+    res.status(200).json({ totalChocolates: trybeCacau.length });
+});
