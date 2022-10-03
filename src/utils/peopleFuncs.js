@@ -6,9 +6,9 @@ const MISSION_DATA_PATH = '../mock/activites.json';
 const readActivite = async () => {
     try {
         const data = await fs.readFile(path.resolve(__dirname, MISSION_DATA_PATH));
-        const activites = JSON.parse(data);
+        const activities = JSON.parse(data);
 
-        return activites;
+        return activities;
     } catch (err) {
         return console.log(err);
     }
@@ -17,10 +17,11 @@ const readActivite = async () => {
 const addActivite = async (newActivite) => {
     try {
         const oldActivities = await readActivite();
-        const allActivites = JSON.stringify([...oldActivities, newActivite]);
+        const allActivites = JSON.stringify([...oldActivities, ...newActivite]);
+
         await fs.writeFile(path.resolve(__dirname, MISSION_DATA_PATH), allActivites);
     } catch (err) {
-        return console.log(err);
+        console.log(err);
     }
 };
 

@@ -1,21 +1,27 @@
 const express = require('express');
-const activites = require('../mock/activites.json');
-// const { readActivite, addActivites } = require('../utils/peopleFuncs');
+const { nameValidation, priceValidation, descValidation } = require('../middlewares/validations');
+const errors = require('../middlewares/erro');
+
+const { readActivite, addActivites } = require('../utils/peopleFuncs');
 
 const router = express.Router();
 
 router.get('/activities', async (_req, res) => {
-    // const activites = await readActivite();
+    const activites = await readActivite();
     res.status(200).json(activites);
 });
 
-router.post('/activities', (req, res) => {
-    const { body } = req;
-  
-    activites.push(body);
-    // addActivites(body);
+router.use(nameValidation);
+router.use(priceValidation);
+router.use(descValidation);
 
+router.post('/activities', async (req, res) => {
+    const { body } = req;
+
+    await addActivites(body, res);
     res.status(201).json({ message: 'Atividade cadastrada com sucesso!' });
 });
+
+router.use(errors);
 
 module.exports = router;
