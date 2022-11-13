@@ -1,23 +1,32 @@
-import { IEmployee } from "./interfaces";
-import Person from "./Person";
+import Emplyee from "./Employee";
+import { Enrollable } from "./interfaces";
 
 export default class Teacher 
-    extends Person implements IEmployee {
+    extends Emplyee implements Enrollable {
     private _subject = '';
+    private _registration: number;
+    private _salary: number;
+    private _admissionDate: Date;
+    private _enrollment: string;
 
     constructor(
         name: string,
         birthDate: Date,
         subject: string,
-        public registration: number,
-        public salary: number,
-        public admissionDate: Date,
+        registration: number,
+        salary: number,
+        admissionDate: Date,
+        public enrollment: string,
     ) {
-        super(name, birthDate);
-
-        this._subject = subject;
+        super(name, birthDate, registration, salary, admissionDate);
         this.validations();
         this.validationEmploye();
+        this._enrollment = this.generateRegistration();
+        
+        this._subject = subject;
+        this._registration = registration;
+        this._salary = salary;
+        this._admissionDate = admissionDate;
     }
 
     getName () {
@@ -32,6 +41,10 @@ export default class Teacher
         return this._subject;
     }
 
+    getEnrollment () {
+        return this._enrollment;
+    }
+
     setName(value: string) {
         this.name = value;
     }
@@ -44,16 +57,20 @@ export default class Teacher
         this._subject = value;
     }
 
+    generateEnrollment () {
+        return this._enrollment;
+    }
+
     validationEmploye() {
-        if (this.registration < 16) {
+        if (this._registration < 16) {
             throw new Error('INVALIDA_REGISTRATION')
         }
 
-        if (this.salary < 0) {
+        if (this._salary < 0) {
             throw new Error('INVALIDA_NEGATIVE_SALARY')
         }
 
-        if (this.admissionDate.getTime() > new Date().getTime()) {
+        if (this._admissionDate.getTime() > new Date().getTime()) {
             throw new Error('INVALIDA_ADMISSION_DATE')
         }
     }

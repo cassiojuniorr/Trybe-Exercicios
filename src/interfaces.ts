@@ -11,3 +11,8 @@ export interface IEmployee {
     salary: number;
     admissionDate: Date;
 }
+
+export interface Enrollable {
+    enrollment: string;
+    generateEnrollment(): string;
+}

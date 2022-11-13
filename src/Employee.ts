@@ -1,16 +1,32 @@
-import { IEmployee } from "./interfaces";
+import { Enrollable } from "./interfaces";
+import Person from "./Person";
 
-export default class Emplyee implements IEmployee {
+export default class Emplyee 
+    extends Person implements Enrollable {
+
+    private _salary: number
+    private _admissionDate: Date;
+    private _enrollment: string;
 
     constructor(
-        public registration: number,
-        public salary: number,
-        public admissionDate: Date,
-    ) {}
+        name: string,
+        birthDate: Date,
+        salary: number,
+    ) {
+        super(name, birthDate);
 
-    generateRegistration() {
+        this._salary = salary;
+        this._admissionDate = new Date();
+        this._enrollment = this.generateEnrollment();
+    }
+
+    get enrollment() {
+        return this._enrollment;
+    }
+
+    generateEnrollment() {
         const uuid = crypto.randomUUID();
-        return `${this.registration}-${uuid}-${this.admissionDate}`
+        return `${this._salary}-${uuid}-${this._admissionDate}`
     }
 
 }
