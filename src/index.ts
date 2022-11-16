@@ -1,15 +1,7 @@
-import Student from "./Student";
+import app from './app';
 
-// const person1 = new Person('Carlos', new Date());
+const server = app.listen(3000, () => console.log(
+    'Server runnings on PORT 3000',
+));
 
-// console.log(person1);
-// person1.name = 'Joao'
-// console.log(person1.name);
-// person1.setBirthDate(new Date())
-// console.log(person1.getBirthDate());
-
-
-const student1 = new Student('adadaad', new Date());
-console.log(student1);
-
-console.log(student1.sumGrades());
+export default server;
