@@ -1,7 +1,20 @@
-import app from './app';
+import CepService from './CepService';
+import FooCepAPI from './FooCepAPI';
 
-const server = app.listen(3000, () => console.log(
-    'Server runnings on PORT 3000',
-));
+async function main() {
+    const cepApi = new FooCepAPI();
+    const cepSvc = new CepService(cepApi);
 
-export default server;
+    console.log(
+    'get address by cep', 
+    '->', 
+    await cepSvc.addressByCep('xx.xxx-xx', 10),
+    );
+    console.log(
+    'get cep by address', 
+    '->', 
+    await cepSvc.cepByAddress('street foo, between bar and baz', 10),
+    );
+}
+
+main();
