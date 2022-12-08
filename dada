@@ -1,0 +1,58 @@
+db.filmes.find();
+
+db.filmes.find({
+    ano: {
+       $in: [1995, 2001, 1968]
+    }
+})
+
+db.filmes.find({
+    ano: {
+       $nin: [2013, 2008]
+    }
+})
+
+db.filmes.find({
+    ano: {
+        $gt: 2000,
+    },
+    
+     "avaliacao.bom": {
+        $gte: 8,
+    }
+})
+
+db.filmes.find({
+   $and: [
+    { ano: { $gt: 2000 } },
+    { "avaliacao.bom": { $gte: 8 } }
+   ]
+})
+
+db.filmes.find({
+   $or: [
+    { ano: { $gt: 2000 } },
+    { "avaliacao.bom": { $gte: 8 } }
+   ]
+})
+
+db.filmes.find({
+    diretor: {
+        $not: {
+            $eq: "Michael Bay"
+        }
+    }
+})
+
+db.filmes.find({
+    $nor: [
+        {diretor: "Michael Bay"},      
+        { "avaliacao.ruim":  10  }
+    ]
+})
+
+db.filmes.find({}, { titulo: 1, _id: 0 }).sort({ titulo: 1 })
+
+db.filmes.find().sort({ "avaliacao.bom": -1 })
+
+db.filmes.find({}).sort({ ano: -1,  titulo: 1 })
