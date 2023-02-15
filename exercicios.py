@@ -1,32 +1,31 @@
-import random
+import json
+import csv
 
-def bigger(x, y):
-    if x > y:
-        return x
-    else:
-        return y
+def books_for_categore(list_book):
+    categories = {}
+    for book in list_book:
+        for ctg in book["categories"]:
+            if not categories.get(ctg):
+                categories[ctg] = 0
+            categories[ctg] += 1
+    return categories
 
-def media(list):
-    soma = 0
-    for elm in list :
-        soma += elm
-    return soma
+def percent(categorys, all_books):
+    return [
+        [category, num_books / all_books]
+        for category, num_books in categorys.items()
+    ]
 
-def big_name(list_name):
-    big = list_name[0]
-    for name in list_name:
-        if len(name) > len(big):
-            big = name
-    return big
+with open("books.json") as file:
+    books = json.load(file)
+    ctgs = books_for_categore(books)
 
-random_list = random.sample(range(0, 100), 10)
-name_list = ["José", "Lucas", "Nádia", "Fernanda", "Cairo", "Joana"]
+percent_by_books = percent(ctgs, len(books))
+header = ["categoria", "percent"]
 
-maior_numero = bigger(10, 20)
-media_list = media(random_list)
-bigger_name = big_name(name_list)
+with open("books_percent_category.csv", "w") as file:
+    writer = csv.writer(file)
+    writer.writerow(header)
+    writer.writerows(percent_by_books)
 
-print(maior_numero)
-print(media_list)
-print(media_list)
-print(bigger_name)
+print('exec')
