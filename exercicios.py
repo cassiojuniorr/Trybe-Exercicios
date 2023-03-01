@@ -1,31 +1,32 @@
-import json
-import csv
+class Soldier:
+    def __init__(self, level):
+        self.level = level
 
-def books_for_categore(list_book):
-    categories = {}
-    for book in list_book:
-        for ctg in book["categories"]:
-            if not categories.get(ctg):
-                categories[ctg] = 0
-            categories[ctg] += 1
-    return categories
+    def attack(self):
+        return self.level * 1
 
-def percent(categorys, all_books):
-    return [
-        [category, num_books / all_books]
-        for category, num_books in categorys.items()
-    ]
 
-with open("books.json") as file:
-    books = json.load(file)
-    ctgs = books_for_categore(books)
+class Jedi:
+    def __init__(self, level):
+        self.level = level
 
-percent_by_books = percent(ctgs, len(books))
-header = ["categoria", "percent"]
+    def attackWithSaber(self):
+        return self.level * 100
+    
+class JediAdpter:
+    def __init__(self, jedi):
+        self.jedi = jedi
 
-with open("books_percent_category.csv", "w") as file:
-    writer = csv.writer(file)
-    writer.writerow(header)
-    writer.writerows(percent_by_books)
+    def attack(self):
+        return self.jedi.attackWithSaber()
 
-print('exec')
+class StarWarsGame:
+    def __init__(self, character):
+        self.character = character
+
+    def fight_enemy(self):
+        print(f"You caused {self.character.attack()} of damage to the enemy")
+
+
+StarWarsGame(Soldier(5)).fight_enemy()
+StarWarsGame(JediAdpter(Jedi(20))).fight_enemy()
