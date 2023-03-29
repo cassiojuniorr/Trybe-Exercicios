@@ -1,32 +1,30 @@
-class Soldier:
-    def __init__(self, level):
-        self.level = level
+# 1 - OK
+# 0 - Instabilidades
 
-    def attack(self):
-        return self.level * 1
+def get_time_sever_off(numbers) -> int:
+    i = 0
+    sum = 0
+    max = 0
+    compared_range = len(numbers) - 1
 
+    while i <= compared_range:
+        if numbers[i] == 1:
+            sum += 1
+        else:
+            sum = 0
 
-class Jedi:
-    def __init__(self, level):
-        self.level = level
+        i += 1
 
-    def attackWithSaber(self):
-        return self.level * 100
-    
-class JediAdpter:
-    def __init__(self, jedi):
-        self.jedi = jedi
+        if sum >= max:
+            max = sum
 
-    def attack(self):
-        return self.jedi.attackWithSaber()
+    return max
+            
 
-class StarWarsGame:
-    def __init__(self, character):
-        self.character = character
+valores_coletados1 = [0, 1, 1, 1, 0, 0, 1, 1]
+# resultado = 3
+print(get_time_sever_off(valores_coletados1))
 
-    def fight_enemy(self):
-        print(f"You caused {self.character.attack()} of damage to the enemy")
-
-
-StarWarsGame(Soldier(5)).fight_enemy()
-StarWarsGame(JediAdpter(Jedi(20))).fight_enemy()
+valores_coletados2 = [1, 1, 1, 1, 1, 0, 1, 1]
+print(get_time_sever_off(valores_coletados2))
+# resultado = 4
